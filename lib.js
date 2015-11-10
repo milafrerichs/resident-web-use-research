@@ -683,5 +683,5 @@ var numberWithCommas = function(n) {
     return parts[0].replace(/\B(?=(\d{3})+(?!\d))/g, ",") + (parts[1] ? "." + parts[1] : "");
 }
 function buttonClassNameForColor(colorString) {
-    return "button-"colors.toLowerCase().split("_")[0];
+    return "button-"+colorString.toLowerCase().split("_")[0];
 }
