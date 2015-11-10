@@ -501,8 +501,13 @@ var DemographicsControl = L.Control.extend({
         function add_button(label, data_point, colors)
         {
             var button = document.createElement('button');
-            button.onclick = function() { buttons.showLayer(data_point, colors) };
+            button.onclick = function() {
+		$(this).parent().find('button').removeClass('active');
+		$(this).addClass('active');
+		buttons.showLayer(data_point, colors);
+	    };
             button.innerText = label;
+	    button.className = 'button ' + buttonClassNameForColor(colors);
         
             div.appendChild(button);
             div.appendChild(document.createTextNode(' '));
@@ -516,6 +521,7 @@ var DemographicsControl = L.Control.extend({
         add_button('Renters', 'rental percentage', ORANGES);
 
         this.showLayer('hispanic percentage', BLUES);
+        $(div).find('button:first').addClass('active');
         return div;
     },
     
@@ -675,4 +681,7 @@ var numberWithCommas = function(n) {
     var parts = roundNumber(n).toString().split(".");
 
     return parts[0].replace(/\B(?=(\d{3})+(?!\d))/g, ",") + (parts[1] ? "." + parts[1] : "");
+}
+function buttonClassNameForColor(colorString) {
+    return "button-"colors.toLowerCase().split("_")[0];
 }
