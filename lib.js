@@ -599,7 +599,7 @@ function build_map(element_id, geojson)
     
     var map = new L.Map(element_id, options),
         layerOptions = { detectRetina: true },
-        tileLayerBg = new L.TileLayer('http://{s}.tile.stamen.com/toner-background/{z}/{x}/{y}.png', layerOptions);
+        tileLayerBg = new L.TileLayer('http://{s}.tile.stamen.com/toner-lite/{z}/{x}/{y}.png', layerOptions);
         tileLayerLabels = new L.TileLayer('http://{s}.tile.stamen.com/toner-labels/{z}/{x}/{y}.png', layerOptions);
 
     map.addLayer(tileLayerBg);
