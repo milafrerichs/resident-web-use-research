@@ -577,6 +577,15 @@ function detailTooltipTemplate() {
       '<b>Per capita income:</b> ${income}<br/>';
 }
 
+/**
+ * Build TileLayer String for Stamen layers
+ *
+ * return string with stamenType and @2x if retina is true
+*/
+function stamenLayer(stamenType, retina) {
+  return 'http://{s}.tile.stamen.com/'+stamenType+'/{z}/{x}/{y}'+(retina ? '@2x': '')+'.png';
+}
+
 function human_float(number) {
   if(number === 0) {
     return '';
